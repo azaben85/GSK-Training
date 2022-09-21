@@ -5,9 +5,8 @@ import 'employee.dart';
 import 'teacher.dart';
 
 void main(List<String> args) {
-  Teacher teacher = Teacher('Ahmad', 55, CERT.master);
-
-  Employee emp = Employee(name: '', age: 55, cert: CERT.master);
+  Teacher teacher = Teacher();
+  print(teacher.getSalary());
 
   Dog dog = Dog('dogx', gender: GENDER.male);
 

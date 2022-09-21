@@ -7,6 +7,7 @@ abstract class Animal {
   bool? canFly;
   String? name;
   ENVIRONMENT? environment;
+  String? _skin;
 
   Animal(this.canFly, this.name, this.environment);
 

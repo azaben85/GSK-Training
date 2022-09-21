@@ -1,10 +1,21 @@
 import 'employee.dart';
 
 // share data
-class Teacher extends Employee {
-  double? salary;
+class Teacher implements Employee {
+  double? _salary;
   String? specification;
 
-  Teacher(String name, int age, CERT cert)
-      : super(name: name, age: age, cert: cert);
+  @override
+  int? age = 55;
+
+  @override
+  CERT? cert;
+
+  @override
+  String? name;
+
+  @override
+  int getSalary() {
+    return 50;
+  }
 }
