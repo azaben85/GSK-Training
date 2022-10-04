@@ -3,8 +3,7 @@ import 'package:firstproject/store/store.dart';
 import 'package:flutter/material.dart';
 
 class StoreScreen extends StatelessWidget {
-  final int? index;
-  const StoreScreen({super.key, this.index});
+  const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +30,10 @@ class StoreScreen extends StatelessWidget {
         child: Column(children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-                child: Text(
-              '${store.title ?? ''}',
+            child: Text(
+              store.title ?? '',
               style: const TextStyle(fontWeight: FontWeight.bold),
-            )),
+            ),
           ),
           Container(
               color: Colors.green,
@@ -53,8 +51,8 @@ class StoreScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  border:
-                      Border.all(color: Color.fromARGB(255, 203, 218, 245))),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 203, 218, 245))),
               child: Text(store.description ?? ''),
             ),
           ),
