@@ -1,9 +1,9 @@
 import 'package:firstproject/image_session.dart';
 import 'package:firstproject/myprofile.dart';
 import 'package:firstproject/news/screen/List_news.dart';
-import 'package:firstproject/news/screen/news_screen.dart';
-import 'package:firstproject/store/views/store_screen%20gridview.dart';
+import 'package:firstproject/statefullwidget_lecture/statefull_screen.dart';
 import 'package:firstproject/store/views/store_screen.dart';
+import 'package:firstproject/store/views/store_screen_gridview.dart';
 import 'package:flutter/material.dart';
 
 // Flutter : session 2
@@ -26,11 +26,14 @@ class HomeScreen extends StatelessWidget {
           navidateTo(context, '3- News', const ListNews()),
 
           // 4- Homework Assigment
-          navidateTo(context, '3- Stores', StoreScreen()),
+          navidateTo(context, '4- Stores', StoreScreen()),
 
           // 5- Homework Assigment
           navidateTo(
-              context, '4- Stores StoreScreenGridView', StoreScreenGridView()),
+              context, '5- Stores StoreScreenGridView', StoreScreenGridView()),
+
+          // 6- Statefull lecture
+          navidateTo(context, '6- Stateful lecture', NewStatefulWidget()),
         ],
       ),
     );
