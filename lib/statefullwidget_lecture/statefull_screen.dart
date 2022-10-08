@@ -14,6 +14,8 @@ class NewStatefulWidget extends StatefulWidget {
 
 class _NewStatefulWidgetState extends State<NewStatefulWidget> {
   bool isDark = false;
+  String content = '';
+  List<String> comments = [];
 /*
   stateless hot reload reload build function only
 */
@@ -105,7 +107,49 @@ class _NewStatefulWidgetState extends State<NewStatefulWidget> {
               const Center(
                 child: Text('Hello, this is my first post'),
               ),
-              const AcceptedConditions()
+              const AcceptedConditions(),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0, left: 10),
+                child: Text('Add Comment:'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        child: TextField(
+                          onChanged: (value) {
+                            content = value;
+                          },
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        comments.add(content);
+                        content = '';
+                        setState(() {});
+                      },
+                      child: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Icon(
+                            Icons.send,
+                            size: 20,
+                          )),
+                    )
+                  ],
+                ),
+              ),
+              ...comments.map((e) => Text(e)).toList()
             ],
           ),
         ),

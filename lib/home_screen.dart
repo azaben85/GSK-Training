@@ -1,3 +1,4 @@
+import 'package:firstproject/TaskManagement/task_management_screen.dart';
 import 'package:firstproject/image_session.dart';
 import 'package:firstproject/myprofile.dart';
 import 'package:firstproject/news/screen/List_news.dart';
@@ -34,6 +35,9 @@ class HomeScreen extends StatelessWidget {
 
           // 6- Statefull lecture
           navidateTo(context, '6- Stateful lecture', NewStatefulWidget()),
+
+          // 7- Task Managment
+          navidateTo(context, '7- Task Managment', TaskManagement()),
         ],
       ),
     );
@@ -54,12 +58,12 @@ class HomeScreen extends StatelessWidget {
                   ]),
               borderRadius: BorderRadius.circular(10)),
           //  width: 200,
-          height: 100,
+          height: 30,
           child: Center(
               child: Text(
             label,
             style: const TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           )),
         ),
         onTap: () => {
