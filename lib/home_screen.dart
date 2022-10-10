@@ -13,6 +13,44 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(children: [
+          const UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(child: Text('AZ')),
+              accountName: Text('Ahmad Zaben'),
+              accountEmail: Text('azaben@gmail.com')),
+          ListTile(
+              title: const Text('All Tasks'),
+              subtitle: const Text('Go to All Tasks Screen'),
+              leading: const Icon(Icons.list),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TaskManagement(
+                          index: 0,
+                        )));
+              }),
+          ListTile(
+              title: Text('Completed Tasks'),
+              subtitle: Text('Go to Completed Tasks Screen'),
+              leading: Icon(Icons.done),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TaskManagement(
+                          index: 1,
+                        )));
+              }),
+          ListTile(
+              title: Text('Incompleted Tasks'),
+              subtitle: Text('Go to Incompleted Tasks Screen'),
+              leading: Icon(Icons.work),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TaskManagement(
+                          index: 2,
+                        )));
+              }),
+        ]),
+      ),
       appBar: AppBar(
         title: const Text('Images'),
       ),
@@ -34,10 +72,10 @@ class HomeScreen extends StatelessWidget {
               context, '5- Stores StoreScreenGridView', StoreScreenGridView()),
 
           // 6- Statefull lecture
-          navidateTo(context, '6- Stateful lecture', NewStatefulWidget()),
+          navidateTo(context, '6- Stateful lecture', const NewStatefulWidget()),
 
           // 7- Task Managment
-          navidateTo(context, '7- Task Managment', TaskManagement()),
+          navidateTo(context, '7- Task Managment', const TaskManagement()),
         ],
       ),
     );
