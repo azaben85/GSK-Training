@@ -2,6 +2,7 @@ import 'package:firstproject/TaskManagement/task_management_screen.dart';
 import 'package:firstproject/image_session.dart';
 import 'package:firstproject/myprofile.dart';
 import 'package:firstproject/news/screen/List_news.dart';
+import 'package:firstproject/social_app/views/screens/main_socialapp_screen.dart';
 import 'package:firstproject/statefullwidget_lecture/statefull_screen.dart';
 import 'package:firstproject/store/views/store_screen.dart';
 import 'package:firstproject/store/views/store_screen_gridview.dart';
@@ -25,27 +26,27 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.list),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => TaskManagement(
+                    builder: (context) => const TaskManagement(
                           index: 0,
                         )));
               }),
           ListTile(
-              title: Text('Completed Tasks'),
-              subtitle: Text('Go to Completed Tasks Screen'),
-              leading: Icon(Icons.done),
+              title: const Text('Completed Tasks'),
+              subtitle: const Text('Go to Completed Tasks Screen'),
+              leading: const Icon(Icons.done),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => TaskManagement(
+                    builder: (context) => const TaskManagement(
                           index: 1,
                         )));
               }),
           ListTile(
-              title: Text('Incompleted Tasks'),
-              subtitle: Text('Go to Incompleted Tasks Screen'),
-              leading: Icon(Icons.work),
+              title: const Text('Incompleted Tasks'),
+              subtitle: const Text('Go to Incompleted Tasks Screen'),
+              leading: const Icon(Icons.work),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => TaskManagement(
+                    builder: (context) => const TaskManagement(
                           index: 2,
                         )));
               }),
@@ -76,6 +77,8 @@ class HomeScreen extends StatelessWidget {
 
           // 7- Task Managment
           navidateTo(context, '7- Task Managment', const TaskManagement()),
+          // 8- Task Managment
+          navidateTo(context, '8- Social Post', const MainSocialScreen()),
         ],
       ),
     );

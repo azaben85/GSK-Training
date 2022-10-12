@@ -19,7 +19,7 @@ class _TaskManagementState extends State<TaskManagement>
         length: 3,
         vsync: this,
         initialIndex: widget.index ?? 0,
-        animationDuration: Duration(seconds: 1));
+        animationDuration: const Duration(seconds: 1));
   }
 
   @override
@@ -27,6 +27,12 @@ class _TaskManagementState extends State<TaskManagement>
     // TODO: implement initState
     super.initState();
     initTabController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    tabController.dispose();
   }
 
   @override
