@@ -14,19 +14,9 @@ class PostCardWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
-                // color: Colors.pink,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.pink,
-                  //  borderRadius: BorderRadius.circular(20)  // BoxShape.circle border radius does not work with circle shape
-                ),
-                width: 70,
-                height: 70,
-                child: Image.network(
-                  post.postUserModel!.image!,
-                  fit: BoxFit.fill,
-                ),
+              CircleAvatar(
+                backgroundImage: NetworkImage(post.postUserModel!.image!),
+                radius: 30,
               ),
               Text(' ${post.postUserModel!.name}')
             ],
