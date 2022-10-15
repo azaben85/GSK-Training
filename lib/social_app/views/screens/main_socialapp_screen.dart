@@ -20,7 +20,7 @@ class _MainSocialScreenState extends State<MainSocialScreen> {
         title: const Text('Social Posts'),
       ),
       body: PageView(controller: pageController, children: [
-        PostWidget(onChange: navidateToFav),
+        PostWidget(onChange: () {}),
         PostFavoriteWidget(
           onChange: navidateToHome,
         )
@@ -44,7 +44,7 @@ class _MainSocialScreenState extends State<MainSocialScreen> {
   }
 
   navidateToHome() {
-    navidateTo(0);
+    navidateTo(1);
   }
 
   navidateTo(int index) {

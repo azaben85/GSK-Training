@@ -16,7 +16,12 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-12/12/2022
+10/12/2022
 1- dispose
 2- Built Social App
 3- PageView & BottomNavigationBarItem
+
+10/15/2022
+1- Responsive Design - MediaQuery - 
+InhertedWidget -
+2- ScreenUtilInit

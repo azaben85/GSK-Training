@@ -2,6 +2,7 @@ import 'package:firstproject/TaskManagement/task_management_screen.dart';
 import 'package:firstproject/image_session.dart';
 import 'package:firstproject/myprofile.dart';
 import 'package:firstproject/news/screen/List_news.dart';
+import 'package:firstproject/responsive_design/responsive_screen.dart';
 import 'package:firstproject/social_app/views/screens/main_socialapp_screen.dart';
 import 'package:firstproject/statefullwidget_lecture/statefull_screen.dart';
 import 'package:firstproject/store/views/store_screen.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        child: Column(children: [
+        child: ListView(children: [
           const UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(child: Text('AZ')),
               accountName: Text('Ahmad Zaben'),
@@ -79,6 +80,8 @@ class HomeScreen extends StatelessWidget {
           navidateTo(context, '7- Task Managment', const TaskManagement()),
           // 8- Task Managment
           navidateTo(context, '8- Social Post', const MainSocialScreen()),
+          // 9- Task Managment
+          navidateTo(context, '9- Responsive Design', const ResponsiveScreen()),
         ],
       ),
     );

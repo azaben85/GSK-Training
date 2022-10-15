@@ -1,8 +1,24 @@
 import 'package:firstproject/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main(List<String> args) {
-  runApp(MaterialApp(home: HomeScreen()));
+  runApp(AppInit());
+}
+
+class AppInit extends StatelessWidget {
+  const AppInit({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        // minTextAdapt: true,
+        //splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp(home: HomeScreen());
+        });
+  }
 }
 
 class MyFirstUI extends StatelessWidget {

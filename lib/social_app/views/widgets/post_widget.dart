@@ -27,11 +27,11 @@ class PostCardWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              Text('${post.content}'),
               FavoriteWidget(
                 post: post,
                 onChange: onChange,
-              )
+              ),
+              Text('${post.content}'),
             ],
           ),
         ],

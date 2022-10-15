@@ -13,16 +13,19 @@ class FavoriteWidget extends StatefulWidget {
 class _FavoriteWidgetState extends State<FavoriteWidget> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Icon(
-        Icons.favorite,
-        color: widget.post.isFav ?? false ? Colors.red : Colors.grey,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        child: Icon(
+          Icons.favorite,
+          color: widget.post.isFav ?? false ? Colors.red : Colors.grey,
+        ),
+        onTap: () {
+          widget.post.isFav = !widget.post.isFav!;
+          widget.onChange();
+          setState(() {});
+        },
       ),
-      onTap: () {
-        widget.post.isFav = !widget.post.isFav!;
-        widget.onChange();
-        setState(() {});
-      },
     );
   }
 }
