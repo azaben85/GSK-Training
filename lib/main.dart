@@ -1,9 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firstproject/home_screen.dart';
+import 'package:firstproject/navigation/page1.dart';
+import 'package:firstproject/navigation/page2.dart';
+import 'package:firstproject/navigation/page3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main(List<String> args) {
-  runApp(AppInit());
+void main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path:
+          'assets/translations', // <-- change the path of the translation files
+      fallbackLocale: const Locale('en'),
+      child: const AppInit()));
 }
 
 class AppInit extends StatelessWidget {
@@ -16,7 +27,42 @@ class AppInit extends StatelessWidget {
         // minTextAdapt: true,
         //splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(home: HomeScreen());
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            home: const HomeScreen(),
+            routes: {
+              'page1': (context) => Page1(),
+              'page2': (context) => Page2(''),
+              'page3': (context) => Page3('')
+            },
+            onGenerateRoute: (settings) {
+              String routName = settings.name ?? '';
+              dynamic routArgs = settings.arguments;
+              switch (routName) {
+                case 'screen':
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return Page2(
+                        'NO Data',
+                      );
+                    },
+                  ));
+                  break;
+                default:
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return const Scaffold(
+                        backgroundColor: Colors.red,
+                        body: Center(child: Text('No Page Found')),
+                      );
+                    },
+                  ));
+              }
+            },
+          );
         });
   }
 }
@@ -38,7 +84,7 @@ class MyFirstUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First APP'),
+        title: const Text('First APP'),
       ),
       body: Center(
         child: Column(
