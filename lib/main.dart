@@ -43,24 +43,24 @@ class AppInit extends StatelessWidget {
               dynamic routArgs = settings.arguments;
               switch (routName) {
                 case 'screen':
-                  Navigator.of(context).push(MaterialPageRoute(
+                  return MaterialPageRoute(
                     builder: (context) {
                       return Page2(
                         'NO Data',
                       );
                     },
-                  ));
-                  break;
-                default:
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return const Scaffold(
-                        backgroundColor: Colors.red,
-                        body: Center(child: Text('No Page Found')),
-                      );
-                    },
-                  ));
+                  );
               }
+            },
+            onUnknownRoute: (settings) {
+              return MaterialPageRoute(
+                builder: (context) {
+                  return const Scaffold(
+                    backgroundColor: Colors.red,
+                    body: Center(child: Text('No Page Found')),
+                  );
+                },
+              );
             },
           );
         });

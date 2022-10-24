@@ -30,3 +30,7 @@ InhertedWidget -
 1- Localization .
 2- Context
 3- Navigator
+
+
+10/22/2022
+4- Navigator

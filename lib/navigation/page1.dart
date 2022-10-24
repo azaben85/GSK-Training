@@ -58,8 +58,18 @@ class Page1 extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed('screen', arguments: {'value': content});
             },
+            //. onGenerateRoute in MaterialApp
             child: const Text(
-                'pushNamed :   Got To screen (does not exist in routing) '),
+                'pushNamed :   Got To "screen" (does not exist in routing) '),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .pushNamed('Unknown', arguments: {'value': content});
+            },
+            //. onUnknownRoute in MaterialApp
+            child: const Text(
+                'pushNamed :   Got To Unknown (does not exist in routing) '),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:firstproject/TaskManagement/screens/add_new_task_screen.dart';
 import 'package:firstproject/TaskManagement/screens/all_tasks_widget.dart';
 import 'package:firstproject/TaskManagement/screens/completed_tasks_widget.dart';
 import 'package:firstproject/TaskManagement/screens/incompleted_tasks_widget.dart';
@@ -57,6 +58,15 @@ class PortraitDesignWidget extends StatelessWidget {
             )
           : null,
       appBar: AppBar(
+        actions: [
+          InkWell(
+            child: Icon(Icons.add),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => AddTask()));
+            },
+          )
+        ],
         title: const Text('Task Managment'),
         bottom: TabBar(controller: tabController, tabs: const [
           Tab(text: 'All Tasks'),
