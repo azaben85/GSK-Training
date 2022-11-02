@@ -3,6 +3,7 @@ import 'package:firstproject/home_screen.dart';
 import 'package:firstproject/navigation/page1.dart';
 import 'package:firstproject/navigation/page2.dart';
 import 'package:firstproject/navigation/page3.dart';
+import 'package:firstproject/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,12 +29,14 @@ class AppInit extends StatelessWidget {
         //splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
+            navigatorKey: AppRouter.navgiationKey,
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
-            home: const HomeScreen(),
+            // home: const HomeScreen(),
             routes: {
+              '/': (context) => const HomeScreen(), // '/' means home
               'page1': (context) => Page1(),
               'page2': (context) => Page2(''),
               'page3': (context) => Page3('')

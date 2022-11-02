@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firstproject/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firstproject/navigation/page2.dart';
@@ -70,6 +71,13 @@ class Page1 extends StatelessWidget {
             //. onUnknownRoute in MaterialApp
             child: const Text(
                 'pushNamed :   Got To Unknown (does not exist in routing) '),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              AppRouter.goToScreen('page2', arguments: {'value': content});
+            },
+            child: const Text(
+                'pushNamed  navigatorKey:   Got To page 2  (navigatorKey)'),
           ),
         ],
       ),

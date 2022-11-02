@@ -3,6 +3,7 @@ import 'package:firstproject/image_session.dart';
 import 'package:firstproject/localization/localization_screen.dart';
 import 'package:firstproject/myprofile.dart';
 import 'package:firstproject/navigation/page1.dart';
+import 'package:firstproject/navigation/page3.dart';
 import 'package:firstproject/news/screen/List_news.dart';
 import 'package:firstproject/responsive_design/responsive_screen.dart';
 import 'package:firstproject/social_app/views/screens/main_socialapp_screen.dart';
@@ -90,6 +91,8 @@ class HomeScreen extends StatelessWidget {
               context, '10- LocalizationScreen', const LocalizationScreen()),
           // 10- Navigation Topic
           navidateTo(context, '11- Navigation Topic', Page1()),
+          // 10- Navigation Topic
+          navidateTo(context, '12- Local Storage', Page3('hello')),
         ],
       ),
     );
