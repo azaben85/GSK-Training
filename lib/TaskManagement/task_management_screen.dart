@@ -1,3 +1,5 @@
+import 'package:firstproject/TaskManagement/models/task_model.dart';
+import 'package:firstproject/TaskManagement/models/todo_db_sqlhelper.dart';
 import 'package:firstproject/TaskManagement/screens/add_new_task_screen.dart';
 import 'package:firstproject/TaskManagement/screens/all_tasks_widget.dart';
 import 'package:firstproject/TaskManagement/screens/completed_tasks_widget.dart';
@@ -23,10 +25,17 @@ class _TaskManagementState extends State<TaskManagement>
         animationDuration: const Duration(seconds: 1));
   }
 
+  List<Task> tasksList = [];
+  getAllTasksFromDB() async {
+    tasksList = await ToDoSQLHelper.sqlHelper.getAllTasks();
+    setState(() { });
+  }
+
   @override
   void initState() {
     super.initState();
     initTabController();
+    getAllTasksFromDB();
   }
 
   @override
@@ -37,14 +46,20 @@ class _TaskManagementState extends State<TaskManagement>
 
   @override
   Widget build(BuildContext context) {
-    return PortraitDesignWidget(tabController: tabController);
+    return PortraitDesignWidget(
+      tabController: tabController,
+      tasksList: tasksList,
+    );
   }
 }
 
 class PortraitDesignWidget extends StatelessWidget {
-  const PortraitDesignWidget({
+  List<Task> tasksList;
+
+  PortraitDesignWidget({
     super.key,
     required this.tabController,
+    required this.tasksList,
   });
 
   final TabController tabController;
@@ -82,7 +97,8 @@ class PortraitDesignWidget extends StatelessWidget {
             ),
           Expanded(
             flex: 2,
-            child: TabBarViewCustom(tabController: tabController),
+            child: TabBarViewCustom(
+                tabController: tabController, tasksList: tasksList),
           ),
         ],
       ),
@@ -138,8 +154,10 @@ class DrawerList extends StatelessWidget {
 }
 
 class TabBarViewCustom extends StatelessWidget {
-  const TabBarViewCustom({
+  List<Task> tasksList;
+  TabBarViewCustom({
     super.key,
+    required this.tasksList,
     required this.tabController,
   });
 
@@ -147,8 +165,8 @@ class TabBarViewCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabBarView(controller: tabController, children: const [
-      AllTasks(),
+    return TabBarView(controller: tabController, children: [
+      AllTasks(tasksList: tasksList),
       CompletedTasks(),
       InCompletedTasks(),
     ]);

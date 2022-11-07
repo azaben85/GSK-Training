@@ -16,4 +16,13 @@ class AppRouter {
   static goToScreenAndReplace(String routeNamed) {
     navgiationKey.currentState!.pushReplacementNamed(routeNamed);
   }
+
+  static displayDialog() {
+    showDialog(
+      context: navgiationKey.currentContext!,
+      builder: (context) {
+        return Text('OK');
+      },
+    );
+  }
 }

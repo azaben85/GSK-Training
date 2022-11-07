@@ -1,5 +1,6 @@
 import 'package:firstproject/TaskManagement/data/dummy_data.dart';
 import 'package:firstproject/TaskManagement/models/task_model.dart';
+import 'package:firstproject/TaskManagement/models/todo_db_sqlhelper.dart';
 import 'package:firstproject/TaskManagement/task_management_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,9 @@ class _AddTaskState extends State<AddTask> {
               child: Icon(Icons.add),
               onPressed: () {
                 tasks_data.add(Task(taskNameContrller.text, completed));
+                ToDoSQLHelper.sqlHelper.insertNewTaskFromMap(
+                    Task(taskNameContrller.text, completed));
+
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                       builder: (context) => const TaskManagement(

@@ -7,6 +7,7 @@ import 'package:firstproject/navigation/page3.dart';
 import 'package:firstproject/news/screen/List_news.dart';
 import 'package:firstproject/responsive_design/responsive_screen.dart';
 import 'package:firstproject/social_app/views/screens/main_socialapp_screen.dart';
+import 'package:firstproject/sqflite/models/screen/test_sqflite.dart';
 import 'package:firstproject/statefullwidget_lecture/statefull_screen.dart';
 import 'package:firstproject/store/views/store_screen.dart';
 import 'package:firstproject/store/views/store_screen_gridview.dart';
@@ -91,8 +92,10 @@ class HomeScreen extends StatelessWidget {
               context, '10- LocalizationScreen', const LocalizationScreen()),
           // 10- Navigation Topic
           navidateTo(context, '11- Navigation Topic', Page1()),
-          // 10- Navigation Topic
+          // 12- Navigation Topic
           navidateTo(context, '12- Local Storage', Page3('hello')),
+          // 14- Navigation Topic
+          navidateTo(context, '14- TestSQFlite', TestSQFlite()),
         ],
       ),
     );
